@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Sctipt-Type" content="text/javascript" />
 <meta http-equiv="imagetoolbar" content="no" />
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>商品登録画面</title>
-
+<script
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<title>ItemListDeleteConfirm画面</title>
 <style type="text/css">
 body {
   margin: 0;
@@ -53,12 +54,13 @@ table {
   background-color: black;
   clear: both;
 }
-
-#text-link {
-  display: inline-block;
-  text-align: right;
-}
 </style>
+<script type="text/javascript">
+  function submitAction(url) {
+    $('form').attr('action', url);
+    $('form').submit();
+  }
+</script>
 </head>
 <body>
   <div id="header">
@@ -66,32 +68,18 @@ table {
   </div>
   <div id="main">
     <div id="top">
-      <p>商品登録</p>
+      <p>ItemListDeleteConfirm</p>
     </div>
     <div>
-      <s:if test = "errorMessage !='' ">
-        <s:property value = "errorMessage" escape = "false" />
-      </s:if>
-      <table>
-      <s:form action="ItemCreateConfirmAction">
+      <h3>商品リストを削除しますか。</h3>
+       <s:form>
         <tr>
-         <td><label>商品名:</label></td>
-         <td><input type="text" name="itemName" value="" /></td>
+          <td><input type="button" value="OK"
+            onclick="submitAction('ItemListDeleteCompleteAction')" /></td>
+          <td><input type="button" value="キャンセル"
+            onclick="submitAction('ItemListAction')" /></td>
         </tr>
-        <tr>
-          <td><label>商品価格:</label></td>
-          <td><input type="text" name="itemPrice" value="" /></td>
-        </tr>
-        <tr>
-          <td><label>商品在庫:</label></td>
-          <td><input type="text" name="itemStock" value="" /></td>
-        </tr>
-        <s:submit value="登録する" />
-      </s:form>
-      </table>
-     <div>
-        <span>前画面に戻る場合は</span> <a href='<s:url action="AdminAction"/>'>こちら</a>
-      </div>
+       </s:form>
     </div>
   </div>
   <div id="footer">

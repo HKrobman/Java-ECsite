@@ -30,25 +30,26 @@ table {
 
 .left{
   float:left;
-  height: 200px;
-  width: 300px;
+  height: 300px;
+  width: 35%;
   border: 1px solid black;
-  margin: 50px 0 0 50px;
+  margin: 50px 0 0 100px;
 }
 
 .right{
-  float:right;
-  height: 200px;
-  width: 300px;
+  float: right;
+  height: 300px;
+  width: 35%;
   border: 1px solid black;
-  margin: 50px 50px 0 0;
+  margin: 50px 100px 0 0;
 }
 
 a{
+  display: block;
+  margin: 30px 30px 30px 30px;
   color: black;
   border: 1px solid black;
 }
-
 
 #top {
   width: 780px;

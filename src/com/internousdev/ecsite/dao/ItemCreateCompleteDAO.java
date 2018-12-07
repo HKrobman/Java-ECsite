@@ -16,12 +16,15 @@ public class ItemCreateCompleteDAO {
 
 	private String sql = "INSERT INTO item_info_transaction(item_name, item_price, item_stock, insert_date) VALUES(?,?,?,?)";
 
-	public void createItem(String itemName, int itemPrice, int itemStock) throws SQLException{
+	public void createItem(String itemName, String itemPrice, String itemStock) throws SQLException{
+
+		int itemprice = Integer.parseInt(itemPrice);
+		int itemstock = Integer.parseInt(itemStock);
 		try {
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, itemName);
-			preparedStatement.setInt(2, itemPrice);
-			preparedStatement.setInt(3, itemStock);
+			preparedStatement.setInt(2, itemprice);
+			preparedStatement.setInt(3, itemstock);
 			preparedStatement.setString(4, dateUtil.getDate());
 
 			preparedStatement.execute();
